@@ -1,0 +1,65 @@
+career_guidance_task:
+  description: >
+    Analyze the user's profile, including skills, experiences, and aspirations,
+    to offer tailored career recommendations.
+  expected_output: >
+    A personalized report suggesting the top 3 career options,
+    including necessary steps and resources for each path.
+  agent: career_guidance
+
+market_analysis_task: 
+  description: >
+    Conduct an in-depth analysis of current job market trends, emerging industries,
+    and in-demand skills using the web search tool for the current market trends for 
+    which the user is wants to pursue his career in.
+  expected_output: >
+    A detailed report highlighting the top 5 industries with growing demand,
+    including relevant statistics and projections.
+  agent: market_analyst
+
+profile_assessment_task: 
+  description: >
+    Assess the user's resume and professional background to identify strengths,
+    weaknesses, and areas for improvement.
+  expected_output: >
+    A comprehensive evaluation report outlining key strengths,
+    potential career matches, and suggestions for skill enhancement.
+  agent: profile_assessment
+
+skill_evaluation_task: 
+  description: >
+    Evaluate the user's current skill set to determine proficiency levels
+    and identify gaps relative to desired career paths.
+  expected_output: >
+    A skill matrix comparing the user's skills against industry standards,
+    highlighting areas for development.
+  agent: skill_evaluation
+
+emotional_intelligence_task: 
+  description: >
+    Assess the user's emotional intelligence (EI) through validated questionnaires
+    to understand interpersonal skills and emotional competencies.
+  expected_output: >
+    An EI profile report detailing strengths and areas for improvement
+    across key emotional competencies.
+  agent: emotional_agent
+
+bias_detection_task:
+  description: >
+    Analyze the system's recommendations and assessments to identify potential biases
+    that could affect fairness.
+  expected_output: >
+    A report highlighting any detected biases in the guidance process,
+    with examples and impact analysis.
+  agent: bias_agent
+
+bias_mitigation_task:
+  description: >
+    Develop and implement strategies to mitigate identified biases,
+    ensuring equitable career guidance for all users.
+  expected_output: >
+    A set of 5 actionable recommendations to address biases,
+    including system adjustments and monitoring plans.
+  agent: bias_agent
+
+
