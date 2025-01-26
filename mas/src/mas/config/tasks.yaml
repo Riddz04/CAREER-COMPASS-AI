@@ -100,7 +100,7 @@ profile_assessment_task:
     5. Actionable career development insights
 
   agent: profile_assessment
-  output_file: "rofile Assessment.md"
+  output_file: "Profile Assessment.md"
 
 skill_evaluation_task:
   description: >
