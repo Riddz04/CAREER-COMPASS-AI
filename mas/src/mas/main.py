@@ -16,9 +16,11 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'I want to make a career in data science'
+        'topic': 'I want to make a career in data science',
+        'resume': 'Resume___28th_June.txt'
     }
     Mas().crew().kickoff(inputs=inputs)
+    print("Done!")
 
 
 def train():
