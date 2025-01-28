@@ -3,6 +3,9 @@ import sys
 import warnings
 
 from mas.crew import Mas
+from mem0 import MemoryClient
+
+client = MemoryClient()
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -11,17 +14,17 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'topic': 'I want to make a career in data science',
-        'resume': 'Resume___28th_June.txt'
-    }
-    Mas().crew().kickoff(inputs=inputs)
-    print("Done!")
 
+def run():
+    
+    user_input = input("Enter the topic you want to discuss: ")
+    inputs = {
+        'topic': f"{user_input}",
+        'resume': 'Resume___28th_June.txt',
+        }
+
+    response = Mas().crew().kickoff(inputs=inputs)
+    print(response)
 
 def train():
     """

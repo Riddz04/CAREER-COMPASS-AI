@@ -98,6 +98,7 @@ profile_assessment_task:
     3. Tailored career match recommendations
     4. Strategic skill enhancement plan
     5. Actionable career development insights
+    6. Provide a short summary of the assessment using Summary Tool.
 
   agent: profile_assessment
   output_file: "Profile Assessment.md"
@@ -249,5 +250,29 @@ career_guidance_task:
 
   agent: career_guidance
   output_file: "Career Guidance.md"
+
+upload_output_to_S3:
+  description: >
+    Collect, validate, and securely upload all task outputs to the designated AWS S3 bucket using the provided upload tool.
+    Process includes:
+    - Pre-upload validation of file integrity and format compatibility
+    - Implementation of chunked uploads for large files
+    - Concurrent upload handling for multiple files
+    - Automatic retry mechanism for failed uploads
+    - Real-time progress tracking and logging
+    - Post-upload verification
+    - Proper metadata tagging and versioning
+    - Compliance check with organizational data policies
+    - Generation of detailed transfer reports
+  expected_output: >
+    A comprehensive upload status report containing:
+    - Upload completion status (success/failure) for each file
+    - Detailed error logs for any failed uploads with error codes and descriptions
+    - S3 object keys and version IDs for successful uploads
+    - Performance metrics including transfer speeds and total time
+    - MD5 checksums for uploaded files
+    - Generated S3 URLs (if applicable)
+    - Timestamp and audit trail of the upload operation
+  agent: upload_agent
 
 

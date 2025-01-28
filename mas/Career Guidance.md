@@ -1,21 +1,26 @@
 Comprehensive Career Guidance Report:
 
-1. Top 3 personalized career recommendations: 
-    * Data Scientist
-    * Machine Learning Engineer
-    * Computer Vision Engineer
-2. Detailed implementation roadmap: 
-    * Short-term (3-6 months): Focus on developing skills in Python, Machine Learning, and Data Visualization.
-    * Medium-term (6-12 months): Develop skills in Cloud Computing and consider taking specialized courses or certifications in areas such as natural language processing, deep learning, or computer vision.
-    * Long-term (1-2 years): Focus on developing expertise in one of the recommended career paths and consider pursuing a graduate degree or certification in data science or a related field.
-3. Skill development strategy: 
-    * Develop skills in Python, Machine Learning, Data Visualization, and Cloud Computing.
-    * Consider taking specialized courses or certifications in areas such as natural language processing, deep learning, or computer vision.
-4. Resource links for each career path: 
-    * Data Scientist: https://www.datasciencecouncil.org/
-    * Machine Learning Engineer: https://www.machinelearningengineer.com/
-    * Computer Vision Engineer: https://www.computervisionengineer.com/
-5. Projected career growth insights: 
-    * Data Scientist: The demand for data scientists is expected to grow 36% by 2025.
-    * Machine Learning Engineer: The demand for machine learning engineers is expected to grow 40% by 2025.
-    * Computer Vision Engineer: The demand for computer vision engineers is expected to grow 32% by 2025.
+1. Top 3 personalized career recommendations:
+   - Java Software Developer: With strong technical skills in Java, Atharva can pursue a career as a Java software developer, working on complex projects and collaborating with cross-functional teams.
+   - Machine Learning Engineer: Atharva's experience with machine learning frameworks and achievements in hackathons and competitions make him a strong candidate for a machine learning engineer role.
+   - Data Scientist: With strong technical skills and experience in data structures and algorithms, Atharva can pursue a career as a data scientist, working on complex data analytics projects and collaborating with stakeholders to drive business decisions.
+
+2. Detailed implementation roadmap:
+   - Acquire skills in cloud computing platforms (e.g., AWS, Azure, Google Cloud) to work on scalable systems and collaborate with cross-functional teams.
+   - Develop skills in cybersecurity frameworks and threat analysis to protect complex systems and data from cyber threats.
+   - Improve skills in data analytics and science, including working with large datasets, statistical modeling, and data visualization tools, to drive business decisions and stay competitive in the job market.
+
+3. Skill development strategy:
+   - Focus on acquiring skills in emerging technologies such as cloud computing, artificial intelligence, and cybersecurity.
+   - Develop strong problem-solving and communication skills to collaborate with cross-functional teams and stakeholders.
+   - Pursue certifications and training programs to demonstrate expertise and commitment to the profession.
+
+4. Resource links for each career path:
+   - Java Software Developer: https://www.oracle.com/java/technologies/javase/index.html
+   - Machine Learning Engineer: https://www.tensorflow.org/
+   - Data Scientist: https://www.kaggle.com/
+
+5. Projected career growth insights:
+   - The job market demand for Java developers is high, with a projected growth rate of 35% in the next 5 years.
+   - The median salary range for Java developers is $118,000 - $160,000 per year.
+   - The top industries with high growth potential for Java developers include cloud computing, artificial intelligence, and cybersecurity.
