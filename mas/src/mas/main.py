@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
+import os
+from mas.S3 import upload_files_to_s3
 from mas.crew import Mas
-from mem0 import MemoryClient
+from dotenv import load_dotenv
 
-client = MemoryClient()
+load_dotenv()
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -17,13 +18,14 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 def run():
     
-    user_input = input("Enter the topic you want to discuss: ")
+    user_input = "I want to make a career in data science"
     inputs = {
         'topic': f"{user_input}",
         'resume': 'Resume___28th_June.txt',
         }
 
     response = Mas().crew().kickoff(inputs=inputs)
+    upload_files_to_s3('output', os.environ.get('BUCKET_NAME'))
     print(response)
 
 def train():

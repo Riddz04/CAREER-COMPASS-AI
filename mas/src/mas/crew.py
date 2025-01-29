@@ -4,7 +4,6 @@ from crewai_tools import (
     FileReadTool,
     EXASearchTool
 )
-from crewai_tools import S3UploadTool
 import os
 from dotenv import load_dotenv
 
@@ -53,7 +52,6 @@ class Mas():
 			config=self.agents_config['market_analyst'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
 			llm=llm,
 			tools=[exa_search, file_tool]
 		)
@@ -64,7 +62,6 @@ class Mas():
 			config=self.agents_config['profile_assessment'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
    			llm=llm,
 			tools=[file_tool]
 		)
@@ -75,7 +72,6 @@ class Mas():
 			config=self.agents_config['skill_evaluation'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
 			llm=llm,
 			tools=[file_tool]
 		)
@@ -86,7 +82,6 @@ class Mas():
 			config=self.agents_config['emotional_agent'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
 			llm=llm
 		)
 
@@ -96,7 +91,6 @@ class Mas():
 			config=self.agents_config['bias_agent'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
 			llm=llm
 		)
 
@@ -106,20 +100,8 @@ class Mas():
 			config=self.agents_config['career_guidance'],
 			verbose=True,
 			memory=True,
-            memory_config=memory_config,
 			llm=llm,
 			tools=[exa_search, file_tool]
-		)
-
-	@agent
-	def upload_agent(self) -> Agent:
-		return Agent(
-			config=self.agents_config['upload_agent'],
-			verbose=True,
-			memory=True,
-			memory_config=memory_config,
-			llm=llm,
-			tools=[S3UploadTool(bucket_name=os.getenv("BUCKET_NAME"))]
 		)
 
 	# To learn more about structured task outputs, 
@@ -160,13 +142,6 @@ class Mas():
 		return Task(
 			config=self.tasks_config['career_guidance_task'],
 			context=[self.market_analysis_task(), self.profile_assessment_task(), self.skill_evaluation_task(), self.emotional_intelligence_task(), self.bias_detection_and_mitigation_task()]
-		)
-
-	@task
-	def upload_output_to_S3(self) -> Task:
-		return Task(
-			config=self.tasks_config['upload_output_to_S3'],
-			context=[self.career_guidance_task()]
 		)
 
 	@crew
