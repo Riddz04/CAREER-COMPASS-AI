@@ -24,7 +24,6 @@ memory_config = {
 
 # llm = LLM(model="huggingface/meta-llama/Meta-Llama-3.1-8B-Instruct", base_url="your_api_endpoint")
 
-
 llm = LLM(
     model="sambanova/Llama-3.2-90B-Vision-Instruct",
     temperature=0.7
@@ -75,16 +74,7 @@ class Mas():
 			llm=llm,
 			tools=[file_tool]
 		)
-	
-	@agent
-	def emotional_agent(self) -> Agent:
-		return Agent(
-			config=self.agents_config['emotional_agent'],
-			verbose=True,
-			memory=True,
-			llm=llm
-		)
-
+  
 	@agent
 	def bias_agent(self) -> Agent:
 		return Agent(
@@ -125,12 +115,6 @@ class Mas():
 		return Task(
 			config=self.tasks_config['skill_evaluation_task'],
 		)
-
-	@task
-	def emotional_intelligence_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['emotional_intelligence_task']
-		)
 	@task
 	def bias_detection_and_mitigation_task(self) -> Task:
 		return Task(
@@ -141,7 +125,7 @@ class Mas():
 	def career_guidance_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['career_guidance_task'],
-			context=[self.market_analysis_task(), self.profile_assessment_task(), self.skill_evaluation_task(), self.emotional_intelligence_task(), self.bias_detection_and_mitigation_task()]
+			context=[self.market_analysis_task(), self.profile_assessment_task(), self.skill_evaluation_task(), self.bias_detection_and_mitigation_task()]
 		)
 
 	@crew

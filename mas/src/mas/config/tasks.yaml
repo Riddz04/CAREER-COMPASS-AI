@@ -155,16 +155,6 @@ skill_evaluation_task:
   agent: skill_evaluation
   output_file: "output/Skill Evaluation.md"
 
-emotional_intelligence_task: 
-  description: >
-    Assess the user's emotional intelligence (EI) through validated questionnaires
-    to understand interpersonal skills and emotional competencies.
-  expected_output: >
-    An EI profile report detailing strengths and areas for improvement
-    across key emotional competencies.
-  agent: emotional_agent
-  output_file: "output/Emotional Intelligence.md"
-
 bias_detection_and_mitigation_task:
   description: >
     Generate bias-free, equitable outputs for all previous task analyses by 
@@ -245,7 +235,6 @@ career_guidance_task:
     - market_analysis_task
     - profile_assessment_task
     - skill_evaluation_task
-    - emotional_intelligence_task
     - bias_detection_and_mitigation_task
 
   agent: career_guidance
