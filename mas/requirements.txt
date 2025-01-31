@@ -143,6 +143,7 @@ markdown-it-py==3.0.0
 marko==2.1.2
 MarkupSafe==3.0.2
 marshmallow==3.25.1
+-e git+https://github.com/BytefulRashi/CareerNexus.git@2aaecac14f706d0e76ec7117f3cbb3dba2df0380#egg=mas&subdirectory=mas
 matplotlib-inline==0.1.7
 mdurl==0.1.2
 mem0ai==0.1.47
@@ -190,7 +191,6 @@ pdfminer.six==20231228
 pdfplumber==0.11.5
 pickleshare==0.7.5
 pillow==11.1.0
-pipreqs==0.5.0
 platformdirs==4.3.6
 portalocker==2.10.1
 posthog==3.9.0
