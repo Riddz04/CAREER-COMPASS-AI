@@ -21,7 +21,7 @@ def run():
     user_input = "I want to make a career in data science"
     inputs = {
         'topic': f"{user_input}",
-        'resume': 'Resume___28th_June.txt',
+        'resume': './processed_resumes/SDE.txt',
         }
 
     response = Mas().crew().kickoff(inputs=inputs)

@@ -6,6 +6,10 @@ from src.mas.S3 import upload_files_to_s3
 import fitz 
 import io
 import time
+from ragS3 import RAGS3
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def read_log_file(file_path):
     try:
@@ -66,23 +70,31 @@ if "resume_txt_path" not in st.session_state:
     st.session_state["resume_txt_path"] = ""
 if "processing_done" not in st.session_state:
     st.session_state["processing_done"] = False
+if "rag_initialized" not in st.session_state:
+    st.session_state["rag_initialized"] = False
+if "chat_history" not in st.session_state:
+    st.session_state["chat_history"] = []
+if "rag_instance" not in st.session_state:
+    st.session_state["rag_instance"] = None
 
-# API Keys in session state
-api_keys = ["GROQ_API_KEY", "EXA_API_KEY", "GEMINI_API_KEY", "SAMBANOVA_API_KEY", "HUGGINGFACE_API_KEY"]
-for key in api_keys:
-    if key not in st.session_state:
-        st.session_state[key] = ""
+def initialize_rag():
+    try:
+        with st.spinner("Initializing RAG system..."):
+            rag = RAGS3(
+                bucket_name=os.environ.get("BUCKET_NAME"),
+                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")
+            )
+            st.session_state["rag_instance"] = rag
+            st.session_state["rag_initialized"] = True
+            return True
+    except Exception as e:
+        st.error(f"Error initializing RAG system: {str(e)}")
+        return False
 
 # Streamlit UI
 st.title("Career Nexus Prototype")
 st.sidebar.title("Navigation")
-
-# Chat-style input for career goal
-st.chat_message("assistant").write("What do you want to become?")
-career_goal = st.chat_input("Enter your career goal here...")
-if career_goal:
-    st.session_state["topic"] = career_goal  # Store input
-    st.chat_message("user").write(career_goal)  # Show user input
 
 # Resume upload
 uploaded_resume = st.file_uploader("Upload Your Resume (.pdf)", type="pdf")
@@ -104,11 +116,9 @@ if uploaded_resume and st.session_state["topic"] and not st.session_state["proce
         # Prepare inputs for Mas
         inputs = {
             "resume": str(resume_path),
-            "topic": st.session_state["topic"],
-            "api_keys": {key: st.session_state[key] for key in api_keys}
+            "topic": st.session_state["topic"]
         }
 
-        # Process using Mas directly
         try:
             Mas().crew().kickoff(inputs=inputs)
             upload_files_to_s3('output', os.environ.get('BUCKET_NAME'))
@@ -129,11 +139,66 @@ categories = {
     "Market Analysis": "Market Analysis.md",
     "Your Profile Assessment": "Profile Assessment.md",
     "Skill Evaluation": "Skill Evaluation.md",
-    "Bias Mitigation": "Bias Mitigated Responses.md",
+    "Bias Mitigation": "Bias Mitigated Responses.md"
 }
 
 # Sidebar for selecting generated insights
-selected_category = st.sidebar.radio("Select a category:", list(categories.keys()) + ["Your API Keys"])
+nav_options = list(categories.keys()) + ["Chat with Career Advisor"]
+selected_category = st.sidebar.selectbox("Select a category:", nav_options)
+
+if selected_category != "Chat with Career Advisor":
+    st.chat_message("assistant").write("What do you want to become?")
+    career_goal = st.chat_input("Enter your career goal here...")
+    if career_goal:
+        st.session_state["topic"] = career_goal
+        st.chat_message("user").write(career_goal)
+        st.write(f"Your career goal: {career_goal}")
+
+if selected_category == "Chat with Career Advisor":
+    st.subheader("Chat with Your Career Advisor")
+    
+    if not st.session_state["processing_done"]:
+        st.warning("Please complete the resume processing first to chat with the career advisor.")
+    else:
+        # Ensure RAG is initialized
+        if not st.session_state["rag_initialized"]:
+            if not initialize_rag():
+                st.error("Unable to initialize the chat system. Please try again.")
+                st.stop()
+        
+        # Display chat history
+        for message in st.session_state["chat_history"]:
+            role = message["role"]
+            content = message["content"]
+            with st.chat_message(role):
+                st.write(content)
+
+        # Chat input
+        user_question = st.chat_input("Ask your career-related questions...")
+        
+        if user_question:
+            # Display user message
+            with st.chat_message("user"):
+                st.write(user_question)
+
+            # Get RAG response
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    try:
+                        if st.session_state["rag_instance"] is None:
+                            raise Exception("Chat system not properly initialized")
+                            
+                        response = st.session_state["rag_instance"].query(
+                            user_question, 
+                            st.session_state["chat_history"]
+                        )
+                        st.write(response["answer"])
+
+                        # Update chat history
+                        st.session_state["chat_history"].append({"role": "user", "content": user_question})
+                        st.session_state["chat_history"].append({"role": "assistant", "content": response["answer"]})
+                    except Exception as e:
+                        st.error(f"Error getting response: {str(e)}")
 
 # Display content only if processing is done
 if st.session_state["processing_done"] and selected_category in categories:
@@ -143,11 +208,6 @@ if st.session_state["processing_done"] and selected_category in categories:
             st.markdown(file.read(), unsafe_allow_html=True)  # Render Markdown
     else:
         st.warning(f"Report for '{selected_category}' is not available yet. Please wait for processing.")
-
-elif selected_category == "Your API Keys":
-    st.subheader("Enter Your API Keys")
-    for key in api_keys:
-        st.session_state[key] = st.text_input(key, st.session_state[key])
 
 # Styling for better UI
 st.markdown(
