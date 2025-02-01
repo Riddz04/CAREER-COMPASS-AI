@@ -225,8 +225,6 @@ PySocks==1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-iso639==2025.1.28
-python-magic==0.4.27
-python-magic-bin==0.4.14
 python-oxmsg==0.0.1
 pytube==15.0.0
 pytz==2024.2
