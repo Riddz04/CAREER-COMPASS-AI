@@ -93,14 +93,40 @@ def initialize_rag():
         return False
 
 # Streamlit UI
-st.title("Career Nexus Prototype")
-st.sidebar.title("Navigation")
+st.set_page_config(
+    page_title="Career Compass Prototype",
+    page_icon=":rocket:",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Force light theme
+def set_light_theme():
+    st.markdown("""
+    <style>
+    html, body, [class*="css"]  {
+        color: #000000;
+        background-color: #ffffff;
+    }
+    .st-emotion-cache-6qob1r {
+        background-color: #f0f2f6;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+set_light_theme()
+
+# Add logo to the sidebar
+st.sidebar.image("logo.png", width = 500)
+
+# Main title
+st.markdown('<div class="title">Career Compass Prototype</div>', unsafe_allow_html=True)
 
 # Resume upload
 uploaded_resume = st.file_uploader("Upload Your Resume (.pdf)", type="pdf")
 
 # Process only if both career goal and resume are present
-if uploaded_resume and st.session_state["topic"] and not st.session_state["processing_done"]:
+if uploaded_resume and st.session_state.get("topic") and not st.session_state["processing_done"]:
     try:
         # Convert PDF to text
         resume_text = convert_pdf_to_text(uploaded_resume)
@@ -130,7 +156,7 @@ if uploaded_resume and st.session_state["topic"] and not st.session_state["proce
     except Exception as e:
         st.error(f"Error processing PDF: {str(e)}")
         
-elif uploaded_resume and not st.session_state["topic"]:
+elif uploaded_resume and not st.session_state.get("topic"):
     st.warning("Please enter your career goal before uploading your resume.")
 
 # Define categories based on generated markdown files
@@ -142,16 +168,19 @@ categories = {
     "Bias Mitigation": "Bias Mitigated Responses.md"
 }
 
-# Sidebar for selecting generated insights
+# Sidebar for selecting generated insights as navigation buttons
 nav_options = list(categories.keys()) + ["Chat with Career Advisor"]
-selected_category = st.sidebar.selectbox("Select a category:", nav_options)
+# Using radio buttons to mimic navigation buttons
+selected_category = st.sidebar.radio("Select a category:", nav_options, key="nav")
 
 if selected_category != "Chat with Career Advisor":
-    st.chat_message("assistant").write("What do you want to become?")
+    with st.chat_message("assistant"):
+        st.write("What do you want to become?")
     career_goal = st.chat_input("Enter your career goal here...")
     if career_goal:
         st.session_state["topic"] = career_goal
-        st.chat_message("user").write(career_goal)
+        with st.chat_message("user"):
+            st.write(career_goal)
         st.write(f"Your career goal: {career_goal}")
 
 if selected_category == "Chat with Career Advisor":
@@ -209,40 +238,116 @@ if st.session_state["processing_done"] and selected_category in categories:
     else:
         st.warning(f"Report for '{selected_category}' is not available yet. Please wait for processing.")
 
-# Styling for better UI
+# Custom CSS for styling
 st.markdown(
     """
     <style>
-    /* Title and upload button styling */
-    .css-10trblm {
-        text-align: center;
-        font-size: 2rem;
-        color: white;
-    }
-
-    /* Sidebar styling */
-    .css-1lcbmhc {
-        background-color: #2c2f33;
-        padding: 20px;
-        border-radius: 10px;
-        color: white;
-    }
-
-    /* Markdown container styling */
-    .markdown-text-container {
-        background-color: #1c1e21;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Center layout for the main content */
+    /* Main container styling */
     .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Title styling */
+    .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #4A90E2;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+
+    /* Removed override for inner content color so that it can inherit dark blue styling */
+
+    /* Style for the sidebar close button */
+    [data-testid="stSidebar"] button[aria-label="Close"] {
+        color: #00008B !important;
+        background: transparent !important;
+        border: none;
+    }
+
+    /* Logo styling */
+    .logo {
+        display: block;
+        width: 300px;
+        margin: 0 auto 10px auto;  /* Centers the logo horizontally */
+    }
+
+
+    /* Button styling for other buttons in the app */
+    .stButton>button {
+        background-color: #4A90E2;
+        color: #00008B;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .stButton>button:hover {
+        background-color: #357ABD;
+        color: #00008B;
+    }
+
+    /* Custom styling for radio buttons used for navigation in the sidebar */
+    div[data-baseweb="radio"] label {
+        display: block;
+        border: 1px solid #00008B;  /* Dark blue border */
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        background-color: white;
+        color: #00008B;            /* Dark blue text */
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    /* Hide the default radio circles */
+    div[data-baseweb="radio"] input[type="radio"] {
+        display: none;
+    }
+    
+    /* Style for the selected navigation button */
+    div[data-baseweb="radio"] input:checked + div {
+        background-color: #00008B !important;
+        color: white !important;
+    }
+    
+    /* Hover effect for navigation buttons: light blue background */
+    div[data-baseweb="radio"] label:hover {
+        background-color: #ADD8E6;
+        color: #00008B;
+    }
+
+    /* Chat message styling */
+    .chat-message {
+        background-color: #F1F1F1;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .chat-message.user {
+        background-color: #4A90E2;
+        color: white;
+    }
+
+    .chat-message.assistant {
+        background-color: #E1E1E1;
+        color: #333;
+    }
+
+    /* Markdown content styling */
+    .markdown-content {
+        background-color: #F9F9F9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
     </style>
     """,
-    unsafe_allow_html=True,)
+    unsafe_allow_html=True,
+)

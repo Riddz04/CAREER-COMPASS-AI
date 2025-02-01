@@ -1,26 +1,31 @@
-Comprehensive Career Guidance Report:
+**Comprehensive Career Guidance Report:**
 
-1. Top 3 personalized career recommendations:
-   - Data Scientist: With his strong background in electronics and telecommunications engineering and experience in programming languages, Atharva can pursue a career in data science, working on projects that involve data analysis, visualization, and modeling.
-   - Machine Learning Engineer: Atharva's experience in machine learning and programming languages makes him a strong candidate for a machine learning engineer role, where he can design and develop intelligent systems that can learn and adapt to new data.
-   - Business Intelligence Analyst: With his experience in data analysis and visualization, Atharva can work as a business intelligence analyst, helping organizations make data-driven decisions and improve their operations.
+**Top 3 Personalized Career Recommendations:**
 
-2. Detailed implementation roadmap:
-   - Acquire skills in data science, machine learning, and data visualization by taking courses or training programs, such as the Data Science Specialization on Coursera or the Data Science with Python and R course on DataCamp.
-   - Gain experience in working with large datasets and complex algorithms by participating in data science competitions or working on personal projects.
-   - Develop a portfolio of projects that demonstrate his skills and experience in data science and machine learning.
+1. **AI Engineer:** With a strong foundation in programming and a growing interest in data science, machine learning, and web development, Riddhi can pursue a career in AI engineering, developing and deploying AI models for various applications.
+2. **Data Scientist:** Riddhi's experience in data science and machine learning makes them a strong candidate for a career in data science, working with companies to analyze and interpret complex data.
+3. **Software Engineer:** With a solid understanding of programming languages and web development frameworks, Riddhi can pursue a career in software engineering, designing and developing software applications for various industries.
 
-3. Skill development strategy:
-   - Take courses or training programs in data science, machine learning, and data visualization to acquire the necessary skills.
-   - Participate in data science competitions or work on personal projects to gain experience in working with large datasets and complex algorithms.
-   - Develop a portfolio of projects that demonstrate his skills and experience in data science and machine learning.
+**Detailed Implementation Roadmap:**
 
-4. Resource links for each career path:
-   - Data Scientist: https://www.coursera.org/specializations/jhu-data-science, https://www.edx.org/course/data-science-essentials
-   - Machine Learning Engineer: https://www.coursera.org/specializations/machine-learning, https://www.edx.org/course/machine-learning-with-python
-   - Business Intelligence Analyst: https://www.coursera.org/specializations/business-intelligence, https://www.edx.org/course/business-intelligence-essentials
+1. **Short-term (0-6 months):** Focus on developing skills in computer vision, software engineering, and data science. Take online courses or attend workshops to improve skills in these areas.
+2. **Mid-term (6-12 months):** Gain experience in AI engineering, data science, or software engineering by working on personal projects or participating in hackathons. Build a strong portfolio to demonstrate expertise to potential employers.
+3. **Long-term (1-2 years):** Pursue a career in AI engineering, data science, or software engineering. Continuously update skills and knowledge to stay competitive in the job market.
 
-5. Projected career growth insights:
-   - Data Scientist: The demand for data scientists is expected to grow by 35% in the next 5 years, with a median salary range of $140,000 - $180,000 per year.
-   - Machine Learning Engineer: The demand for machine learning engineers is expected to grow by 30% in the next 5 years, with a median salary range of $130,000 - $170,000 per year.
-   - Business Intelligence Analyst: The demand for business intelligence analysts is expected to grow by 20% in the next 5 years, with a median salary range of $100,000 - $130,000 per year.
+**Skill Development Strategy:**
+
+1. **Computer Vision:** Take online courses or attend workshops to improve skills in computer vision, including image processing, object detection, and segmentation.
+2. **Software Engineering:** Focus on developing skills in software engineering, including design patterns, testing, and deployment.
+3. **Data Science:** Continue to improve skills in data science, including working with large datasets, complex algorithms, and data visualization.
+
+**Resource Links for Each Career Path:**
+
+1. **AI Engineer:** https://www.andi.co/blog-posts/that-ai-opportunity, https://douglevin.substack.com/p/the-hot-market-for-ai-professionals
+2. **Data Scientist:** https://www.ruder.io/thoughts-on-the-2024-ai-job-market/, https://opendatascience.com/6-charts-that-explain-why-the-machine-learning-ai-job-market-is-on-fire/
+3. **Software Engineer:** https://www.upwork.com/resources/top-ai-careers, https://brandnao.blogspot.com/2019/05/emerging-job-market-for-ai.html
+
+**Projected Career Growth Insights:**
+
+1. **AI Engineer:** The AI industry is expected to experience significant growth in the coming years, with a projected job growth percentage of 30% and median salary ranges of $100,000 to $200,000.
+2. **Data Scientist:** The data science industry is expected to experience rapid growth, with a projected job growth percentage of 20% and median salary ranges of $80,000 to $180,000.
+3. **Software Engineer:** The software engineering industry is expected to experience significant growth, with a projected job growth percentage of 25% and median salary ranges of $90,000 to $200,000.
