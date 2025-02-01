@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
+import os
+from mas.S3 import upload_files_to_s3
 from mas.crew import Mas
+from dotenv import load_dotenv
+
+load_dotenv()
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -11,15 +15,18 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
-def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'topic': 'I want to make a career in data science'
-    }
-    Mas().crew().kickoff(inputs=inputs)
 
+def run():
+    
+    user_input = "I want to make a career in data science"
+    inputs = {
+        'topic': f"{user_input}",
+        'resume': './processed_resumes/SDE.txt',
+        }
+
+    response = Mas().crew().kickoff(inputs=inputs)
+    upload_files_to_s3('output', os.environ.get('BUCKET_NAME'))
+    print(response)
 
 def train():
     """
