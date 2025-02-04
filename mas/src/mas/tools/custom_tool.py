@@ -1,6 +1,9 @@
 from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
+import boto3
+from botocore.exceptions import NoCredentialsError, ClientError
+
 
 
 class MyCustomToolInput(BaseModel):
