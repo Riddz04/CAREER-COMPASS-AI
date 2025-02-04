@@ -188,10 +188,6 @@ categories = {
     "Bias Mitigation": "Bias Mitigated Responses.md"
 }
 
-# Sidebar for selecting generated insights as navigation buttons
-nav_options = list(categories.keys()) + ["Chat with Career Advisor"]
-# Using radio buttons to mimic navigation buttons
-selected_category = st.sidebar.radio("Select a category:", nav_options, key="nav")
 
 
 if selected_category == "Chat with Career Advisor":
