@@ -113,6 +113,13 @@ Career Compass serves diverse user needs:
 - **HR Professionals**: Support employee development and career planning
 
 ## Prototype
+![image](https://raw.githubusercontent.com/Riddz04/CAREER-COMPASS-AI/main/mas/WhatsApp%20Image%202025-02-18%20at%2017.46.08.jpeg)
+![image](https://raw.githubusercontent.com/Riddz04/CAREER-COMPASS-AI/main/mas/WhatsApp%20Image%202025-02-18%20at%2017.46.04.jpeg)
+![image](https://raw.githubusercontent.com/Riddz04/CAREER-COMPASS-AI/main/mas/WhatsApp%20Image%202025-02-18%20at%2017.46.10.jpeg)
+![image](https://raw.githubusercontent.com/Riddz04/CAREER-COMPASS-AI/main/mas/WhatsApp%20Image%202025-02-18%20at%2017.46.15.jpeg)
+![image](https://raw.githubusercontent.com/Riddz04/CAREER-COMPASS-AI/main/mas/WhatsApp%20Image%202025-02-18%20at%2017.46.22.jpeg)
+
+
 
 
 
