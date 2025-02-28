@@ -1,54 +1,153 @@
-# Mas Crew
+![image](https://github.com/user-attachments/assets/5d27e495-9bb1-4ec7-83df-a1e76d2b6059)
 
-Welcome to the Mas Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
-## Installation
+# Career Compass: AI-Powered Career Guidance Platform
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11-green.svg)](https://www.python.org/downloads/)
 
-First, if you haven't already, install uv:
+Career Compass is an innovative AI-driven platform developed for the Amdocs Gen AI Hackathon 2024-2025. Our platform revolutionizes career guidance by combining advanced AI technologies with emotional intelligence to provide personalized, unbiased career advice and professional development planning.
 
+## 🌟 Key Features
+
+Career Compass leverages a sophisticated multi-agent system to deliver comprehensive career guidance:
+
+- **Personalized Career Recommendations**: Data-driven advice based on your skills, experience, and market trends
+- **Advanced Skill Assessment**: In-depth analysis of your competencies and personalized development roadmaps
+- **Emotionally Intelligent Conversations**: Natural, empathetic interactions powered by advanced AI
+- **Bias-Free Guidance**: Engineered to provide fair and inclusive career recommendations
+- **Real-Time Market Insights**: Up-to-date career opportunities aligned with industry trends
+- **Continuous Learning**: System evolves and improves through user feedback and market data
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before installation, ensure you have:
+
+- Python 3.11 or higher
+- pip (Python package manager)
+- Git
+
+### Installation
+
+1. Clone the repository:
 ```bash
-pip install uv
+git clone https://github.com/yourusername/career-compass.git
+cd career-compass
 ```
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+2. Create and activate a virtual environment:
 ```bash
-crewai install
-```
-### Customizing
+# For Unix/macOS
+python -m venv .venv
+source .venv/bin/activate
 
-**Add your `GROQ_API_KEY` into the `.env` file**
-
-- Modify `src/mas/config/agents.yaml` to define your agents
-- Modify `src/mas/config/tasks.yaml` to define your tasks
-- Modify `src/mas/crew.py` to add your own logic, tools and specific args
-- Modify `src/mas/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+# For Windows
+python -m venv .venv
+.venv\Scripts\activate.ps1
 ```
 
-This command initializes the MAS Crew, assembling the agents and assigning them tasks as defined in your configuration.
+3. Install required packages:
+```bash
+pip install -r requirements.txt
+```
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+4. Install additional dependencies:
+```bash
+pip install crewai crewai-tools pymupdf langchain-google-genai faiss-cpu boto3 langchain-groq marko streamlit
+```
 
-## Understanding Your Crew
+5. Set up environment variables:
+```bash
+# Create .env file in src/mas directory
+touch src/mas/.env
 
-The MAS Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+# Add required environment variables
+# Example:
+OPENAI_API_KEY=your_key_here
+GOOGLE_API_KEY=your_key_here
+```
 
-## Support
+### Verification
 
-For support, questions, or feedback regarding the Mas Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+Verify your installation:
+```bash
+pip list  # Check installed packages
+pip check  # Verify dependencies
+```
 
-Let's create wonders together with the power and simplicity of crewAI.
+### Running the app
+```bash
+flask run --extra-files "app.py"
+```
+
+## 🏗️ System Architecture
+
+### Multi-Agent Analysis Orchestra
+
+Our platform utilizes five specialized AI agents:
+
+1. **Market Analyst Agent**: Processes industry trends and identifies emerging opportunities
+2. **Profile Assessment Agent**: Evaluates user profiles and career trajectories
+3. **Skill Evaluation Agent**: Conducts comprehensive skill gap analysis
+4. **Bias Mitigation Agent**: Ensures fair and unbiased recommendations
+5. **Career Guide Agent**: Synthesizes insights into actionable career plans
+
+### Emotionally Intelligent RAG Interface
+
+The platform features an advanced Retrieval-Augmented Generation (RAG) system that provides:
+
+- Context-aware responses
+- Personalized career insights
+- Emotionally intelligent interactions
+- Natural conversation flow
+
+## 🎯 Use Cases
+
+Career Compass serves diverse user needs:
+
+- **Students**: Discover career paths aligned with their interests and skills
+- **Professionals**: Plan career transitions and skill development
+- **Career Counselors**: Augment their guidance with data-driven insights
+- **HR Professionals**: Support employee development and career planning
+
+## Prototype
+
+
+
+## 🛣️ Roadmap
+
+Future enhancements planned:
+
+- Integration with major job platforms
+- AI-powered interview preparation module
+- Industry mentor matching system
+- Real-time market opportunity alerts
+- Enhanced skill assessment tools
+- International market insights
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+- Project Team - [careercompass@example.com](mailto:your-email@example.com)
+
+## 🏆 Acknowledgments
+
+- Amdocs Gen AI Hackathon 2024-2025 organizers
+- The open-source community
+
+Developed with ❤️ for the Amdocs Gen AI Hackathon 2024-2025
