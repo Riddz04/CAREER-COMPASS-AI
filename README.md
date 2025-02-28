@@ -79,7 +79,7 @@ pip check  # Verify dependencies
 
 ### Running the app
 ```bash
-flask run --extra-files "app.py"
+streamlit run career_compass.py
 ```
 
 ## 🏗️ System Architecture
